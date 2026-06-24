@@ -1,0 +1,83 @@
+<DOCTYPE hlml>
+<html>
+    <head>
+        <title>ตารางกิจวัตรประจำวัน</title>
+        <style>
+            body {
+                background-color: #f0f8ff;
+                font-family: Tahoma;
+                margin: 30px;
+            }
+            h1 { color: darkblue; text-align: center; }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 18px;
+            }
+            th{
+                background-color: darkblue;
+                color: white;
+                text-align: center;
+                padding: 10px;
+
+            }
+            td { padding: 10px; border: 1px solid #aaa; }
+            tr:nth-child(odd) { background-color: #e8f4fd; }
+        </style>
+    </head>
+    <body>
+        <button onclick="window.location.href='index.html'">หน้าหลัก</button>
+        <button onclick="window.location.href='page2.html'">หน้าที่ 2</button>
+        <button onclick="window.location.href='page3.html'">หน้าที่ 3</button>
+        
+        <h1>ตารางกิจวัตรประจำวัน</h1>
+        <hr>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>เวลา</th>
+                    <th>กิจกรรม</th>
+                    <th>หมายเหตุ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>วันจันทร์</td>
+                    <td>เรียนวิชาเครือข่าย</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>วันอังคาร</td>
+                    <td>เรียนวิชาวิเคราะห์และออกแบบ</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>วันพุธ</td>
+                    <td>เรียนวิชาhtml</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>วันพฤหัสบดี</td>
+                    <td>เรียนวิชาไมโครคอลโทรลเลอร์</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>วันศุกร์</td>
+                    <td>เรียนวิชาโปรแกรมสำนักงาน</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>วันเสาร์</td>
+                    <td>พักผ่อน / เล่นเกม</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>วันอาทิตย์</td>
+                    <td>พักผ่อน / ดูอนิเมะ</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
