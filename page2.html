@@ -1,50 +1,147 @@
-<DOCTYPE html>
-<html>
-    <head>
-        <title>ทักษะและเป้าหมายอาชีพ</title>
-        <style>
-            body {
-                background-color: #f0f8ff;
-                font-family: Tahoma;
-                margin: 30px;
-            }
-            h1 { color: darkblue; text-align: center; }
-            h2 { color: darkred; }
-            p, li { font-size: 18px;}
-        </style>
-    </head>
-    <body>
-        <button onclick="window.location.href='index.html'">หน้าหลัก</button>
-        <button onclick="window.location.href='page2.html'">หน้าที่ 2</button>
-        <button onclick="window.location.href='page3.html'">หน้าที่ 3</button>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทักษะและเป้าหมายอาชีพ</title>
+    <style>
+        :root {
+            --primary-color: #0d47a1;
+            --secondary-color: #8e0000;
+            --bg-color: #f0f8ff;
+            --card-bg: #ffffff;
+        }
 
-        <h1>ทักษะและเป้าหมายอาชีพ</h1>
-        <hr>
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
 
-        <h2> รายกายทักษะที่ต้องการพัฒนา </h2>
-        <ul>
-            <li>การเขียนโปรแกรม HTML python c++</li>
-            <li>การใช้งานโปรแกรม Adobe Photoshop</li>
-            <li>ทักษะการใช้ภาษาอังกฤษ</li>
-            <li>ทักษะการซ่อมอุปกรณ์คอมพิวเตอร์</li>
-            <li>ความรู้เรื่องเน็ตเวิร์ค</li>
-        </ul>
+        body { 
+            background-color: var(--bg-color); 
+            font-family: 'Tahoma', sans-serif; 
+            line-height: 1.6; 
+            color: #333;
+        }
 
-        <div class="center">
-            <img src="lgpc.jpeg" width="200" alt="รูปภาพภาษาคอม" style="margin: 10px;">
-            <img src="network.jpg" width="200" alt="รูปภาพเน็ตเวิร์ค" style="margin: 10px;">
+        /* Responsive Navigation */
+        nav {
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.15);
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active { 
+            background-color: white; 
+            color: var(--primary-color); 
+            font-weight: bold; 
+        }
+
+        .container { 
+            max-width: 1000px; 
+            margin: 20px auto; 
+            padding: 0 20px; 
+        }
+
+        .card { 
+            background: var(--card-bg); 
+            padding: 25px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            margin-bottom: 25px; 
+        }
+
+        h1 { color: var(--primary-color); text-align: center; margin-bottom: 10px; }
+        h2 { color: var(--secondary-color); margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+        
+        ul, ol { 
+            margin-left: 20px; 
+            font-size: 16px; 
+        }
+
+        li { margin-bottom: 8px; }
+
+        /* Responsive Grid สำหรับรูปภาพ */
+        .img-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .img-grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 0; }
+            .container { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">หน้าหลัก</a>
+        <a href="page2.html" class="active">หน้าที่ 2</a>
+        <a href="page3.html">หน้าที่ 3</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="card">
+            <h1>ทักษะและเป้าหมายอาชีพ</h1>
         </div>
 
-        <hr>
+        <!-- รายการทักษะ -->
+        <div class="card">
+            <h2>รายการทักษะที่ต้องการพัฒนา</h2>
+            <ul>
+                <li>การเขียนโปรแกรม HTML, Python, C++</li>
+                <li>การใช้งานโปรแกรม Adobe Photoshop</li>
+                <li>ทักษะการใช้ภาษาอังกฤษ</li>
+                <li>ทักษะการซ่อมอุปกรณ์คอมพิวเตอร์</li>
+                <li>ความรู้เรื่องเน็ตเวิร์ค</li>
+            </ul>
 
-        <h2>ลำดับอาชีพที่อยากทำ</h2>
-        <ol>
-            <li>นักพัฒนาโปรแกรม</li>
-            <li>ผู้ดูแลระบบเครือข่าย</li>
-            <li>ช่างซ่อมคอมพิวเตอร์</li>
-        </ol>
-        <div class="center">
-            <img src="software engineer.jpg" width="200" alt="รูปภาพภาษาคอม" style="margin: 10px;">
+            <div class="img-grid">
+                <img src="lgpc.jpeg" alt="รูปภาพภาษาคอมพิวเตอร์">
+                <img src="network.jpg" alt="รูปภาพเน็ตเวิร์ค">
+            </div>
         </div>
-    </body>
+
+        <!-- เป้าหมายอาชีพ -->
+        <div class="card">
+            <h2>ลำดับอาชีพที่อยากทำ</h2>
+            <ol>
+                <li>นักพัฒนาโปรแกรม (Programmer / Developer)</li>
+                <li>ผู้ดูแลระบบเครือข่าย (Network Administrator)</li>
+                <li>ช่างซ่อมคอมพิวเตอร์ (IT Support)</li>
+            </ol>
+
+            <div class="img-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 280px));">
+                <img src="software engineer.jpg" alt="รูปภาพนักพัฒนาโปรแกรม">
+            </div>
+        </div>
+
+    </div>
+
+</body>
 </html>
