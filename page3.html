@@ -1,83 +1,174 @@
-<DOCTYPE hlml>
-<html>
-    <head>
-        <title>ตารางกิจวัตรประจำวัน</title>
-        <style>
-            body {
-                background-color: #f0f8ff;
-                font-family: Tahoma;
-                margin: 30px;
-            }
-            h1 { color: darkblue; text-align: center; }
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                font-size: 18px;
-            }
-            th{
-                background-color: darkblue;
-                color: white;
-                text-align: center;
-                padding: 10px;
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตารางกิจวัตรประจำวัน</title>
+    <style>
+        :root {
+            --primary-color: #0d47a1;
+            --secondary-color: #8e0000;
+            --bg-color: #f0f8ff;
+            --card-bg: #ffffff;
+        }
 
-            }
-            td { padding: 10px; border: 1px solid #aaa; }
-            tr:nth-child(odd) { background-color: #e8f4fd; }
-        </style>
-    </head>
-    <body>
-        <button onclick="window.location.href='index.html'">หน้าหลัก</button>
-        <button onclick="window.location.href='page2.html'">หน้าที่ 2</button>
-        <button onclick="window.location.href='page3.html'">หน้าที่ 3</button>
-        
-        <h1>ตารางกิจวัตรประจำวัน</h1>
-        <hr>
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
 
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>เวลา</th>
-                    <th>กิจกรรม</th>
-                    <th>หมายเหตุ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>วันจันทร์</td>
-                    <td>เรียนวิชาเครือข่าย</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>วันอังคาร</td>
-                    <td>เรียนวิชาวิเคราะห์และออกแบบ</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>วันพุธ</td>
-                    <td>เรียนวิชาhtml</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>วันพฤหัสบดี</td>
-                    <td>เรียนวิชาไมโครคอลโทรลเลอร์</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>วันศุกร์</td>
-                    <td>เรียนวิชาโปรแกรมสำนักงาน</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>วันเสาร์</td>
-                    <td>พักผ่อน / เล่นเกม</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>วันอาทิตย์</td>
-                    <td>พักผ่อน / ดูอนิเมะ</td>
-                    <td>-</td>
-                </tr>
-            </tbody>
-        </table>
-    </body>
+        body { 
+            background-color: var(--bg-color); 
+            font-family: 'Tahoma', sans-serif; 
+            line-height: 1.6; 
+            color: #333;
+        }
+
+        /* Responsive Navigation */
+        nav {
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.15);
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active { 
+            background-color: white; 
+            color: var(--primary-color); 
+            font-weight: bold; 
+        }
+
+        .container { 
+            max-width: 1000px; 
+            margin: 20px auto; 
+            padding: 0 20px; 
+        }
+
+        .card { 
+            background: var(--card-bg); 
+            padding: 25px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            margin-bottom: 25px; 
+        }
+
+        h1 { color: var(--primary-color); text-align: center; margin-bottom: 10px; }
+
+        /* Responsive Table Container (เลื่อนขวาได้บนมือถือ) */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px; /* รองรับกรณีเปิดบนหน้าจอเล็ก */
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        tr:nth-child(even) { 
+            background-color: #f8fbfe; 
+        }
+
+        tr:hover { 
+            background-color: #e8f4fd; 
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 0; }
+            .container { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">หน้าหลัก</a>
+        <a href="page2.html">หน้าที่ 2</a>
+        <a href="page3.html" class="active">หน้าที่ 3</a>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h1>ตารางกิจวัตรประจำวัน</h1>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>วัน / เวลา</th>
+                            <th>กิจกรรม</th>
+                            <th>หมายเหตุ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>วันจันทร์</strong></td>
+                            <td>เรียนวิชาเครือข่าย</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>วันอังคาร</strong></td>
+                            <td>เรียนวิชาวิเคราะห์และออกแบบ</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>วันพุธ</strong></td>
+                            <td>เรียนวิชา HTML</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>วันพฤหัสบดี</strong></td>
+                            <td>เรียนวิชาไมโครคอนโทรลเลอร์</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>วันศุกร์</strong></td>
+                            <td>เรียนวิชาโปรแกรมสำนักงาน</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>วันเสาร์</strong></td>
+                            <td>พักผ่อน / เล่นเกม</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>วันอาทิตย์</strong></td>
+                            <td>พักผ่อน / ดูอนิเมะ</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
 </html>
