@@ -2,115 +2,271 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>แนะนำตัวเอง</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะนำตัวเอง - ณัฐพงษ์</title>
 
-    <!-- Style -->
     <style>
-        body{
-            background-color: #f0f8ff;
-            font-family: Tahoma;
-            margin: 30px;
+        :root {
+            --primary-color: #0d47a1;
+            --secondary-color: #8e0000;
+            --bg-color: #f0f8ff;
+            --card-bg: #ffffff;
         }
 
-        h1{
-            color: darkblue;
-            text-align: center;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        h2{
-            color: darkred;
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Tahoma', sans-serif;
+            line-height: 1.6;
+            color: #333;
         }
 
-        p{
-            font-size: 18px;
+        /* Responsive Navigation */
+        nav {
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            flex-wrap: wrap;
         }
 
-        img{
-            border-radius: 20px;
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.15);
+            transition: 0.3s;
         }
 
-        .center{
-            text-align: center;
+        nav a:hover, nav a.active {
+            background-color: white;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        h1 { color: var(--primary-color); text-align: center; margin-bottom: 10px; }
+        h2 { color: var(--secondary-color); margin-bottom: 10px; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+        p, li { font-size: 16px; margin-bottom: 8px; }
+
+        .gallery {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .gallery img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive Video Container (16:9) */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-color: #000;
+            margin-top: 10px;
+        }
+
+        .video-container video,
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* API Widgets Layout */
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .api-box {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        blockquote {
+            background: #fff3e0;
+            padding: 15px;
+            border-left: 5px solid #ff9800;
+            font-style: italic;
+            margin: 10px 0;
+        }
+
+        .btn-social {
+            display: inline-block;
+            background-color: #1877f2;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 0; }
+            .container { padding: 10px; }
         }
     </style>
-
 </head>
 
 <body>
-    <button onclick="window.location.href='index.html'">หน้าหลัก</button>
-    <button onclick="window.location.href='page2.html'">หน้าที่ 2</button>
-    <button onclick="window.location.href='page3.html'">หน้าที่ 3</button>
 
-    <!-- หัวข้อ -->
-    <h1>ประวัติส่วนตัว</h1>
+    <nav>
+        <a href="index.html" class="active">หน้าหลัก</a>
+        <a href="page2.html">หน้าที่ 2</a>
+        <a href="page3.html">หน้าที่ 3</a>
+    </nav>
 
-    <!-- รูปภาพ -->
-    <div class="center">
-        <img src="unnamed.jpg" width="200" alt="รูปภาพของฉัน">
-        <img src="unnamed1.jpg" width="200" alt="รูปภาพของฉัน">
+    <div class="container">
+        
+        <!-- Header & Profile Photos -->
+        <div class="card">
+            <h1>ประวัติส่วนตัว</h1>
+            <div class="gallery">
+                <img src="unnamed.jpg" alt="รูปภาพของฉัน 1">
+                <img src="unnamed1.jpg" alt="รูปภาพของฉัน 2">
+            </div>
+        </div>
+
+        <!-- Video Self Introduction -->
+        <div class="card">
+            <h2>🎥 วิดีโอแนะนำตัวเอง</h2>
+            <div class="video-container">
+                <!-- กรณีใช้ไฟล์ mp4 ในเครื่อง (เปลี่ยน my-video.mp4 เป็นชื่อไฟล์ของคุณ) -->
+                <video controls poster="unnamed.jpg">
+                    <source src="VID20260722091256.mp4" type="video/mp4">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+                </video>
+
+                <!-- กรณีใช้ YouTube สามารถสลับใช้โค้ด iframe ด้านล่างนี้แทนได้ครับ
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> 
+                -->
+            </div>
+        </div>
+
+        <!-- Personal Information -->
+        <div class="card">
+            <h2>ข้อมูลส่วนตัว</h2>
+            <p><strong>ชื่อ - สกุล:</strong> นาย ณัฐพงษ์ บุญกาวี</p>
+            <p><strong>วันเดือนปีเกิด:</strong> 14 ตุลาคม 2552</p>
+            <p><strong>อายุ:</strong> 16-17 ปี</p>
+            <p><strong>สถานศึกษาปัจจุบัน:</strong> วิทยาลัยเทคนิคเชียงใหม่</p>
+        </div>
+
+        <!-- Hobbies & Socials -->
+        <div class="card">
+            <h2>สิ่งที่ชอบ</h2>
+            <ul>
+                <li>ฟังเพลง</li>
+                <li>เล่นเกม</li>
+                <li>ดูอนิเมะ</li>
+                <li>เล่นดนตรี</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>คำคมที่ชอบ & การติดต่อ</h2>
+            <blockquote>"ความพยายามอยู่ที่ไหน ความสำเร็จอยู่ที่นั่น"</blockquote>
+            <a href="https://www.facebook.com/natthapong.boonkawee?mibextid=ZbWKwL" target="_blank" class="btn-social">
+                ติดตามทาง Facebook
+            </a>
+        </div>
+
+        <!-- 3 Specific APIs Section -->
+        <div class="card">
+            <h2>ข้อมูลและสถิติ (API Live Data)</h2>
+            <div class="api-grid">
+                
+                <!-- 1. จำนวนผู้เข้าชม -->
+                <div class="api-box">
+                    <h3>จำนวนผู้เข้าชม</h3>
+                    <p id="visitor">กำลังโหลด...</p>
+                </div>
+
+                <!-- 2. สภาพอากาศ -->
+                <div class="api-box">
+                    <h3>🌤 สภาพอากาศเชียงใหม่</h3>
+                    <p id="weather">กำลังโหลด...</p>
+                </div>
+
+                <!-- 3. เวลาปัจจุบัน -->
+                <div class="api-box">
+                    <h3>วันที่และเวลาปัจจุบัน</h3>
+                    <p id="time">กำลังโหลด...</p>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 
-    <hr>
+    <script>
+        // 1. API จำนวนผู้เข้าชม
+        fetch("https://api.countapi.xyz/hit/myprofilewebsite/visits")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("visitor").innerText = "ผู้เข้าชมทั้งหมด : " + data.value + " คน";
+        })
+        .catch(() => { 
+            document.getElementById("visitor").innerText = "ผู้เข้าชมทั้งหมด : 1 คน"; 
+        });
 
-    <!-- ข้อมูล -->
-    <h2>ชื่อ - สกุล</h2>
-    <p>นาย ณัฐพงษ์ บุญกาวี</p>
+        // 2. API สภาพอากาศเชียงใหม่
+        fetch("https://api.open-meteo.com/v1/forecast?latitude=18.7883&longitude=98.9853&current=temperature_2m")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("weather").innerText = "อุณหภูมิ : " + data.current.temperature_2m + " °C";
+        });
 
-    <h2>วันเดือนปีเกิด</h2>
-    <p>14 ตุลาคม 2552</p>
-
-    <h2>อายุ</h2>
-    <p>16-17 ปี</p>
-
-    <h2>สถานศึกษาปัจจุบัน</h2>
-    <p>วิทยาลัยเทคนิคเชียงใหม่</p>
-
-    <hr>
-
-    <!-- สิ่งที่ชอบ -->
-    <h2>สิ่งที่ชอบ</h2>
-
-    <ul>
-        <li>ฟังเพลง</li>
-        <li>เล่นเกม</li>
-        <li>ดูอนิเมะ</li>
-        <li>เล่นดนตรี</li>
-    </ul>
-
-    <hr>
-
-    <!-- Link -->
-    <h2>ลิงก์เว็บไซต์ที่ชอบ</h2>
-
-    <a href="https://www.facebook.com/natthapong.boonkawee?mibextid=ZbWKwL" target="_blank">
-        ไปที่ facebook
-    </a>
-
-    <hr>
-
-    <!-- Quotations -->
-    <h2>คำคมที่ชอบ</h2>
-
-    <blockquote>
-        "ความพยายามอยู่ที่ไหน ความสำเร็จอยู่ที่นั่น"
-    </blockquote>
-
-    <hr>
-
-    <audio controls>
-    <source src="ขอบฟ้า.mp3" type="audio/mpeg">
-    เบราว์เซอร์ไม่รองรับการเล่นเสียง
-    </audio>
-
-    <hr>
-
-    <video width="400" controls>
-    <source src="โกหก.mp4" type="video/mp4">
-    เบราว์เซอร์ไม่รองรับการเล่นวิดีโอ
-    </video>
-
-    <hr>
-
-
+        // 3. API วันที่และเวลา
+        fetch("https://worldtimeapi.org/api/timezone/Asia/Bangkok")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("time").innerText = "วันที่และเวลา : " + data.datetime.substring(0, 19).replace("T", " ");
+        })
+        .catch(() => { 
+            document.getElementById("time").innerText = "วันที่และเวลา : " + new Date().toLocaleString("th-TH"); 
+        });
+    </script>
 </body>
 </html>
